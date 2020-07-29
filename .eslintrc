@@ -1,0 +1,35 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/essential"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "parser": "babel-eslint", // 交给babel处理es6语法
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "legacyDecorators": true
+    }
+  },
+  "plugins": [
+    "vue"
+  ],
+  "rules": {
+    "eqeqeq": ["error", "always"],
+		"no-multi-spaces": "error",
+		// allow space-before-function-paren
+		"space-before-function-paren": ["error", "always"], // 函数[匿名函数]名 括号
+		"semi": ["error", "never"], // 无分号
+		"quotes": ["error", "single"] // 单引号
+  }
+}
