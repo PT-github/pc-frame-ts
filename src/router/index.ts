@@ -2,7 +2,7 @@
  * @Author: PT
  * @Date: 2020-05-31 21:52:04
  * @LastEditors: PT
- * @LastEditTime: 2020-07-29 16:46:35
+ * @LastEditTime: 2020-07-30 09:15:45
  * @Description: file content
  */ 
 import Vue from 'vue'
@@ -18,6 +18,10 @@ const routes = [
   {
     path: '/test2',
     component: () => import(/* webpackChunkName: "test2" */ '@/views/test/test2.vue')
+  },
+  {
+    path: '/test3',
+    component: () => import(/* webpackChunkName: "test3" */ '@/views/test/test3')
   }
 ]
 

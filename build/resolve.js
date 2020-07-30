@@ -2,7 +2,7 @@
  * @Author: PT
  * @Date: 2020-06-01 15:37:08
  * @LastEditors: PT
- * @LastEditTime: 2020-07-29 09:46:36
+ * @LastEditTime: 2020-07-30 09:43:09
  * @Description: resolve配置
  */
 const path = require('path')
@@ -16,5 +16,5 @@ module.exports = {
     '@': path.resolve(__dirname, '../src'),
     ...alias
   },
-  extensions: [ ...extensions, '.ts', '.js', '.jsx', '.vue', '.json']
+  extensions: [ ...extensions, '.ts', '.tsx', '.js', '.jsx', '.vue', '.json']
 }

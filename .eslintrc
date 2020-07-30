@@ -25,6 +25,7 @@
     "vue"
   ],
   "rules": {
+    "no-unused-vars": "off", // jsx中必须导入h 确不需要在代码中使用 所以关闭此设置
     "eqeqeq": ["error", "always"],
 		"no-multi-spaces": "error",
 		// allow space-before-function-paren

@@ -2,7 +2,7 @@
  * @Author: PT
  * @Date: 2020-06-01 15:50:32
  * @LastEditors: PT
- * @LastEditTime: 2020-07-29 16:35:16
+ * @LastEditTime: 2020-07-30 09:08:57
  * @Description: webpack的rules配置
  */
 const path = require('path')
@@ -96,25 +96,30 @@ module.exports = [
   },
   {
     test: /\.tsx?$/,
-    loader: 'ts-loader',
     exclude: /node_modules/,
-    options: {
-      transpileOnly: true,
-      getCustomTransformers: () => ({
-        before: [tsImportPluginFactory({
-          libraryName: 'element-ui',
-          libraryDirectory: 'lib',
-          camel2DashComponentName: true,
-          style: (_path) =>
-            path.join('element-ui', 'lib', 'theme-chalk', `${
-              camel2Dash(path.basename(_path, '.js'))}.css`),
-        })]
-      }),
-      compilerOptions: {
-        module: 'es2015'
-      },
-      appendTsSuffixTo: [/\.vue$/],
-    }
+    use: [
+      'babel-loader',
+      {
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true,
+          getCustomTransformers: () => ({
+            before: [tsImportPluginFactory({
+              libraryName: 'element-ui',
+              libraryDirectory: 'lib',
+              camel2DashComponentName: true,
+              style: (_path) =>
+                path.join('element-ui', 'lib', 'theme-chalk', `${
+                  camel2Dash(path.basename(_path, '.js'))}.css`),
+            })]
+          }),
+          compilerOptions: {
+            module: 'es2015'
+          },
+          appendTsSuffixTo: [/\.vue$/],
+        }
+      }
+    ]
   },
   /* config.module.rule('images') */
   {
